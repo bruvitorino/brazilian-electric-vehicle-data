@@ -26,3 +26,33 @@ The platform will:
 - Build analytical datasets focused on electric vehicle adoption.
 - Provide indicators by year, state, municipality, vehicle type, and fuel type.
 - Make curated data available for visualization in Power BI.
+
+## Architecture
+
+The project follows a Medallion Architecture with an additional Raw layer to preserve the original source files.
+
+```text
+SENATRAN
+    │
+    ▼
+Data Extraction
+    │
+    ▼
+RAW
+Original source files
+    │
+    ▼
+BRONZE
+Ingested data stored in Delta Lake
+    │
+    ▼
+SILVER
+Cleaned, standardized, and validated data
+    │
+    ▼
+GOLD
+Business-ready analytical datasets
+    │
+    ▼
+Power BI
+Dashboards and indicators
